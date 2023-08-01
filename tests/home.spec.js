@@ -1,26 +1,26 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Elements ", async () => {
-  // test.beforeEach(async ({ page }) => {
-  //   await page.goto("https://www.bbc.com/");
-  // });
-  test("After open url page is visible", async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     await page.goto("https://www.bbc.com/");
+  });
+  test("After open url page is visible", async ({ page }) => {
+    
     const homePage = page.locator("#page");
     await expect(homePage).toBeVisible();
   });
   test("Home page has title BBC -Homepage", async ({ page }) => {
-    await page.goto("https://www.bbc.com/");
+    
     await expect(page).toHaveTitle("BBC - Homepage");
   });
   test("Logo BBC is visible", async ({ page }) => {
-    await page.goto("https://www.bbc.com/");
+    
     const logo = page.locator("#homepage-link");
     await expect(logo).toBeVisible();
   });
 
   test("Let us know you agree to advertising cookies", async ({ page }) => {
-    await page.goto("https://www.bbc.com/");
+    
     const advertisingCookies = page
       .frameLocator('iframe[title="SP Consent Message"]')
       .getByLabel("I agree");
@@ -41,7 +41,7 @@ test.describe("Elements ", async () => {
     // await page.getByRole('button', { name: 'Sign in' }).click();
   });
   test('Search BBC is visible', async({page})=>{
-    await page.goto("https://www.bbc.com/");
+   
    const searchBBC= page.locator('[title="Search BBC"]');
    await expect(searchBBC).toBeVisible();
   });
