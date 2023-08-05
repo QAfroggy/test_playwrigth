@@ -11,9 +11,13 @@ test.describe("Registration", ()=>{
     test('Registation a new user', async({page})=>{
         const Register = new Registration(page);
         await expect(Register.signInPage).toBeVisible()
-        await Register.userInput.fill("user84@gmail.com")
-        await Register.passInput.fill("para123")
-        await Register.submit.click()
+        // await Register.userInput.fill("user84@gmail.com")
+        // await Register.passInput.fill("para123")
+        // await Register.submit.click()
+        await Register.registerNow.click()
+        await Register.over16.click()
+        await Register.registerUser("1", "12", "1982");
+
 
     })
 });
