@@ -1,5 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { Registration } from "../utils/pages/registration";
+
+const password = process.env.PASSWORD;
+const userEmail = process.env.USERLOGIN;
 test.describe("Registration", ()=>{
 
 
